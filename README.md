@@ -59,3 +59,48 @@ Dimostrazione che il lavoro è aggiornato: per discutere di come GPT-4, Llama 3 
 ## ⁠Hermes 3 - Llama 3.1 8B
 
 ## ⁠Qwen 2.5 7B Instruct
+
+**SYSTEM_PROMPT**: "You are solving SemEval 2026 Task 12: Abductive Event Reasoning. 
+    Given an event, context documents, and four options (A–D),
+    choose which option(s) are the most plausible direct cause of the event. 
+    Respond ONLY with the letters of all correct options, 
+    separated by commas (e.g. 'A', 'A,B', or 'D'). 
+    Do not output any explanations.
+
+**A**
+
+**Context building strategy**: Concatenating "--- Document {i} ---\nTitle: {doc.get('title')}\nText: {clean_text}\n\n until a maximum number of characters (6000)
+
+**Total Questions: 400**
+
+**Results**
+
+|         | Number | Percentage |
+|---------|--------|------------|
+| Correct | 195    | 48.75%%    |
+| Partial | 94     | 23.5%      |
+| Wrong   | 111    | 27.750000000000004% |
+| Score   | 242.0  | 60.5%%     |
+
+**B**
+
+**Context building strategy**: Concatenating the first MAX_DOCS_PER_TOPIC Documents 
+"Doc {i}:\n
+Title: {doc.get('title')}\n
+Snippet: {doc.get('snippet')}\n  
+Content: {content}\n"
+
+the document content is truncated at MAX_CHARS_PER_DOC size
+
+content = content[:MAX_CHARS_PER_DOC] + "..."
+
+**Total Questions: 400**
+
+**Results**
+
+|         | Number | Percentage |
+|---------|--------|------------|
+| Correct | 185    | 46.25%     |
+| Partial | 99     | 24.75%     |
+| Wrong   | 116    | 28.999999999999996% |
+| Score   | 234.5  | 58.62500000000001%  |
