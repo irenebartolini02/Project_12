@@ -39,6 +39,8 @@ Dimostrazione che il lavoro è aggiornato: per discutere di come GPT-4, Llama 3 
     separated by commas (e.g. 'A', 'A,B', or 'D'). 
     Do not output any explanations.
 
+**A**
+
 **Context building strategy**: Concatenating "--- Document {i} ---\nTitle: {doc.get('title')}\nText: {clean_text}\n\n until a maximum number of characters (6000)
 
 **Total Questions: 400**
@@ -51,6 +53,29 @@ Dimostrazione che il lavoro è aggiornato: per discutere di come GPT-4, Llama 3 
 | Partial | 90     | 22.5%      |
 | Wrong   | 130    | 32.5%      |
 | Score   | 225.0  | 56.25%     |
+
+**B**
+
+**Context building strategy**: Concatenating the first MAX_DOCS_PER_TOPIC Documents 
+"Doc {i}:\n
+Title: {doc.get('title')}\n
+Snippet: {doc.get('snippet')}\n  
+Content: {content}\n"
+
+the document content is truncated at MAX_CHARS_PER_DOC size
+
+content = content[:MAX_CHARS_PER_DOC] + "..."
+
+**Results**
+|         | Number | Percentage |
+|---------|--------|------------|
+| Correct | 119    | 29.75%     |
+| Partial | 93     | 23.25%     |
+| Wrong   | 188    | 47.0%      |
+| Score   | 165.5  | 41.375%    |
+
+
+
 
 ## ⁠Llama 3.1 8B Instruct (Meta)
 
