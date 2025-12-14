@@ -32,14 +32,15 @@ Dimostrazione che il lavoro è aggiornato: per discutere di come GPT-4, Llama 3 
 # Baselines Causal Reasoning Evaluation
 ## Gemma 2 9B Instruct
 
-**SYSTEM_PROMPT**: "You are solving SemEval 2026 Task 12: Abductive Event Reasoning. 
+### **SYSTEM_PROMPT**: "You are solving SemEval 2026 Task 12: Abductive Event Reasoning. 
+    You are solving SemEval 2026 Task 12: Abductive Event Reasoning. 
     Given an event, context documents, and four options (A–D),
     choose which option(s) are the most plausible direct cause of the event. 
     Respond ONLY with the letters of all correct options, 
     separated by commas (e.g. 'A', 'A,B', or 'D'). 
     Do not output any explanations.
 
-**A**
+#### **Version A:**
 
 **Context building strategy**: Concatenating "--- Document {i} ---\nTitle: {doc.get('title')}\nText: {clean_text}\n\n until a maximum number of characters (6000)
 
@@ -54,7 +55,7 @@ Dimostrazione che il lavoro è aggiornato: per discutere di come GPT-4, Llama 3 
 | Wrong   | 130    | 32.5%      |
 | Score   | 225.0  | 56.25%     |
 
-**B**
+#### **Version B:**
 
 **Context building strategy**: Concatenating the first MAX_DOCS_PER_TOPIC Documents 
 "Doc {i}:\n
@@ -85,14 +86,15 @@ content = content[:MAX_CHARS_PER_DOC] + "..."
 
 ## ⁠Qwen 2.5 7B Instruct
 
-**SYSTEM_PROMPT**: "You are solving SemEval 2026 Task 12: Abductive Event Reasoning. 
+### **SYSTEM_PROMPT**: 
+    You are solving SemEval 2026 Task 12: Abductive Event Reasoning. 
     Given an event, context documents, and four options (A–D),
     choose which option(s) are the most plausible direct cause of the event. 
     Respond ONLY with the letters of all correct options, 
     separated by commas (e.g. 'A', 'A,B', or 'D'). 
     Do not output any explanations.
 
-**A**
+#### **Version A**
 
 **Context building strategy**: Concatenating "--- Document {i} ---\nTitle: {doc.get('title')}\nText: {clean_text}\n\n until a maximum number of characters (6000)
 
@@ -107,7 +109,7 @@ content = content[:MAX_CHARS_PER_DOC] + "..."
 | Wrong   | 111    | 27.750000000000004% |
 | Score   | 242.0  | 60.5%%     |
 
-**B**
+#### **Version B**
 
 **Context building strategy**: Concatenating the first MAX_DOCS_PER_TOPIC Documents 
 "Doc {i}:\n
