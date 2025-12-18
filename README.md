@@ -128,6 +128,48 @@ content = content[:MAX_CHARS_PER_DOC] + "..."
 
 
 ## ⁠Hermes 3 - Llama 3.1 8B
+### **SYSTEM_PROMPT**: "You are solving SemEval 2026 Task 12: Abductive Event Reasoning. 
+    You are solving SemEval 2026 Task 12: Abductive Event Reasoning. 
+    Given an event, context documents, and four options (A–D),
+    choose which option(s) are the most plausible direct cause of the event. 
+    Respond ONLY with the letters of all correct options, 
+    separated by commas (e.g. 'A', 'A,B', or 'D'). 
+    Do not output any explanations.
+
+#### **Version A:**
+
+**Context building strategy**: Concatenating "--- Document {i} ---\nTitle: {doc.get('title')}\nText: {clean_text}\n\n until a maximum number of characters (6000)
+
+**Total Questions: 400**
+
+**Results**
+
+|         | Number | Percentage |
+|---------|--------|------------|
+| Correct | 153    | 38.25%      |
+| Partial | 110     | 27.50%      |
+| Wrong   | 137    | 34.52%      |
+| Score   | 208.0  | 52.00%     |
+
+#### **Version B:**
+
+**Context building strategy**: Concatenating the first MAX_DOCS_PER_TOPIC Documents 
+"Doc {i}:\n
+Title: {doc.get('title')}\n
+Snippet: {doc.get('snippet')}\n  
+Content: {content}\n"
+
+the document content is truncated at MAX_CHARS_PER_DOC size
+
+content = content[:MAX_CHARS_PER_DOC] + "..."
+
+**Results**
+|         | Number | Percentage |
+|---------|--------|------------|
+| Correct | 133    | 33.33%     |
+| Partial | 97     | 24.31%     |
+| Wrong   | 169    | 42.35%      |
+| Score   | 181.5  | 45.49%    |
 
 ## ⁠Qwen 2.5 7B Instruct
 
