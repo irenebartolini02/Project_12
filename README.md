@@ -116,15 +116,15 @@ the document content is truncated at MAX_CHARS_PER_DOC size
 
 content = content[:MAX_CHARS_PER_DOC] + "..."
 
-Total questions: 400
+**Total Questions: 400**
 
 **Results**
 |         | Number | Percentage |
 |---------|--------|------------|
-| Correct | 147    | 36.75%     |
-| Partial | 75     | 18.75%     |
-| Wrong   | 178    | 44.5%      |
-| Score   | 184.5  | 46.125%    |
+| Correct | 118    | 29.5%      |
+| Partial | 134    | 33.5%      |
+| Wrong   | 148    | 37.0%      |
+| Score   | 185    | 46.25%    |
 
 
 ## ⁠Hermes 3 - Llama 3.1 8B
