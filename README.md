@@ -27,7 +27,20 @@ Dimostrazione che il lavoro è aggiornato: per discutere di come GPT-4, Llama 3 
 
 - [**Tackling LLM Hallucination with Abductive Reasoning**](https://www.preprints.org/manuscript/202511.1688):
     - Collega il problema dell'AER alle allucinazioni. Puoi usarlo per dire: "Valutare l'Abductive Reasoning è critico perché il fallimento in questo task è spesso la causa delle allucinazioni negli scenari RAG".
+ 
+- [**Chain-of-Thought Prompting Elicits Reasoning in Large Language Models**](https://arxiv.org/pdf/2201.11903)
+    - We explore how generating a chain of thought—a series of intermediate reasoning steps—significantly improves the ability of large language models to perform complex reasoning  
 
+- [**Instruction Tuning for Large Language Models: A Survey**](https://arxiv.org/pdf/2308.10792)
+    - This paper surveys research works in the quickly advancing field of instruction tuning (IT), which can also be referred to as supervised fine-tuning (SFT)
+- [**Active Prompting with Chain-of-Thought for Large Language Models**](https://aclanthology.org/2024.acl-long.73.pdf)
+    - This paper proposes a new method, Active-Prompt, to adapt LLMs to different tasks with task-specific example prompts (annotated with human-designed CoT reasoning). For this purpose, we propose a solution to the key problem of determining which questions are the most important and helpful to annotate from a pool of task-specific queries.
+
+- [**GoT: Effective Graph-of-Thought Reasoning in Language Models**](https://aclanthology.org/2024.findings-naacl.183.pdf)
+    -  we propose Graph-of-Thought (GoT) reasoning, which models human thought processes not only as a chain but also as a graph. By representing thought units as nodes and connections between them as edges, our approach captures the non-sequential nature of human thinking and allows for a more realistic modeling of thought processes
+ 
+- [**Tree of Thoughts: Deliberate Problem Solving with Large Language Models**](https://arxiv.org/pdf/2305.10601)
+    - we introduce a new framework for language model inference, “Tree of Thoughts” (ToT), which generalizes over the popular “Chain of Thought” approach to prompting language models, and enables exploration over coherent units of text (“thoughts”) that serve as intermediate steps toward problem solving. ToT allows LMs to perform deliberate decision making by considering multiple different reasoning paths and self-evaluating choices to decide the next course of action, as well as looking ahead or backtracking when necessary to make global choices.
 
 # Baselines Causal Reasoning Evaluation
 ## Gemma 2 9B Instruct
